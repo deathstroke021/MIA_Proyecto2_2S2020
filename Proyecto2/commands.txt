@@ -1,0 +1,24 @@
+
+//Crear variable de entorno
+export LD_LIBRARY_PATH=/opt/instantclient_12_2/
+
+//Visualizar Variable de entorno
+echo $LD_LIBRARY_PATH
+
+//otros
+npm init --yes
+npm install express cors morgan oracledb
+sudo npm install -g @angular/cli
+sudo npm install -g typescript
+npm install nodemailer
+node src/index.js
+
+sudo npm install -g http-server
+http-server -p 3010
+
+ng new Frontend
+npm install bootstrap
+ng g c components/CRUD
+ng g s services/user
+ng g g guards/moth
+ng serve --open
