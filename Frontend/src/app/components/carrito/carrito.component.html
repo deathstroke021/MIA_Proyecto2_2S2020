@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <img *ngFor="let usuario of Usuarios" src="{{usuario.foto}}" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">{{usuario.correo}}</label>
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">Creditos: {{usuario.credito}}</label>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item active">
+                    <button (click)="CerrarSesion()" type="button" class="btn btn-info">Cerrar Sesion</button>
+
+                </li>
+                
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+      <ul class="navbar-nav mr-auto">
+        <input [(ngModel)]="cantidad" name="password" placeholder="cantidad" type="text" class="form-control"   aria-describedby="emailHelp">
+        
+                
+      </ul>
+
+      <ul class="navbar-nav mr-auto">
+        <label *ngFor="let total of Totales" for="Name">Total:{{total.total}}</label>
+        
+        
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button (click)="Comprar()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Comprar</button>
+        <button (click)="Limpiar()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Limpiar</button>
+        
+      </form>
+    </div>
+  </nav>
+
+<div class="container mt-5">
+    <div class="row">
+        
+        <div class="col-8">
+            <div class="row">
+
+                <div *ngFor="let productos of Carritos" class="col-4">
+                    
+                    <div class="card bg-light mb-3">
+                        <img src="{{productos.foto}}" width="170" height="170" alt="">
+
+                        <div class="card-header">{{productos.nombre}}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Creditos: {{productos.precio}}</h5>
+                          
+  
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cantidad: {{productos.cantidad}}</h5>
+                          
+  
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Subtotal: {{productos.subtotal}}</h5>
+                          
+  
+                        </div>
+                        
+                        <div class="card-footer">
+
+                            <button (click)="Cantidad(productos.idproducto)" type="submit"  class="btn btn-secondary">Agregar Cantidad</button>
+                            
+                    </div>
+                        
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+
+    </div>
+</div>

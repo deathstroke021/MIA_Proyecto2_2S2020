@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <label  for="start">Administrador</label>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <button (click)="Buzon()" type="button" class="btn btn-info">Buzon denuncias</button>
+
+                </li>
+
+                <li class="nav-item active">
+                    <button (click)="Categoria()" type="button" class="btn btn-info">Crear categorias</button>
+
+                </li>
+
+                <li class="nav-item active">
+                    <button (click)="CerrarSesion()" type="button" class="btn btn-info">Cerrar Sesion</button>
+
+                </li>
+                
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <form>
+                
+                <button (click)="MostrarBitacora()" type="submit" class="btn btn-secondary">Reporte Bitacora</button>
+
+            </form>
+        </div>
+
+    </div>
+</div> 
+
+<style>
+    .col-4{
+        position: absolute;
+        top:50%;
+        left: 50%;           
+        margin-top: -100px;
+        margin-left: -100px;
+    }
+
+</style>

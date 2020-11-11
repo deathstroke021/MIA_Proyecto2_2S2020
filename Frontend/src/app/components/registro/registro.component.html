@@ -1,0 +1,70 @@
+<nav class="navbar navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <form>
+                <div class="form-group">  
+                    <input [(ngModel)]="nombre" name="nombre" placeholder="nombre" type="text" class="form-control"   aria-describedby="emailHelp">              
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="apellido" name="apellido" placeholder="apellido" type="text" class="form-control" >
+                </div>
+                <div class="form-group"> 
+                    
+                    <label for="start">Fecha de nacimiento: </label>
+
+<input [(ngModel)]="fecha" type="date" id="start" name="trip-start"
+       value="2020-01-01"
+       min="1900-01-01" max="2020-12-31">
+                </div>
+                <div class="form-group"> 
+                    <label for="cars">Seleccionar pais: </label>
+<select [(ngModel)]="idpais" name="idpais" id="idpais">
+    <option *ngFor="let pais of Paises" value="{{pais.id}}">{{pais.pais}}</option>
+</select>
+                </div>
+                <div class="form-group"> 
+                    <input [(ngModel)]="correo" name="correo"  placeholder="correo" type="text" class="form-control" >
+                </div>
+                <div class="form-group"> 
+                    <input [(ngModel)]="password" name="password"  placeholder="password" type="password" class="form-control" >
+                </div>
+                <div class="form-group"> 
+                    <input [(ngModel)]="cpassword" name="cpassword"  placeholder="confirmar password" type="password" class="form-control" >
+                </div>
+                <div class="form-group"> 
+                    <label for="Name">Seleccionar foto de perfil</label>
+                    <input [(ngModel)]="foto" type="file" name="foto" accept=".jpg,.png,jpeg" multiple/>
+                </div>
+                <button (click)="registrarUsuario()" type="submit" class="btn btn-secondary">Registrar Usuario</button>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+<style>
+    .col-4{
+        position: absolute;
+        top:30%;
+        left: 40%;           
+        margin-top: -100px;
+        margin-left: -100px;
+    }
+
+</style>

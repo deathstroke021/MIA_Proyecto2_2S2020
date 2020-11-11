@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <img *ngFor="let usuario of Usuarios" src="{{usuario.foto}}" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">{{usuario.correo}}</label>
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">Creditos: {{usuario.credito}}</label>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item active">
+                    <button (click)="CerrarSesion()" type="button" class="btn btn-info">Cerrar Sesion</button>
+
+                </li>
+                
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <form>
+                <div class="form-group">  
+                    <input [(ngModel)]="nombre" name="nombre" placeholder="nombre" type="text" class="form-control"   aria-describedby="emailHelp">              
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="descripcion" name="apellido" placeholder="descripcion" type="text" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="precio" name="apellido" placeholder="precio" type="text" class="form-control" >
+                </div>
+                <div class="form-group"> 
+                    <label for="cars">Seleccionar categoria: </label>
+<select [(ngModel)]="idcategoria" name="idpais" id="idpais">
+    <option *ngFor="let cat of Categoria" value="{{cat.id}}">{{cat.categoria}}</option>
+</select>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="Name">Seleccionar foto del producto</label>
+                    <input [(ngModel)]="foto" type="file" name="foto" accept=".jpg,.png,.jpeg" multiple/>
+                </div>
+                <button (click)="PublicarProducto()" type="submit" class="btn btn-secondary">Publicar</button>
+                
+            <br>
+            <br>
+
+                <div class="form-group"> 
+                    <label for="productos">Productos publicados: </label>
+<select [(ngModel)]="idproducto" name="idproducto" id="idproducto">
+    <option *ngFor="let producto of Productosver" value="{{producto.id}}">{{producto.nombre}}</option>
+</select>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="palabra" name="palabra" placeholder="tag" type="text" class="form-control" >
+                </div>
+                <button (click)="Agregartag()" type="submit" class="btn btn-secondary">Agregar palabra clave</button>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+<style>
+    .col-4{
+        position: absolute;
+        top:30%;
+        left: 40%;           
+        margin-top: -100px;
+        margin-left: -100px;
+    }
+
+</style>

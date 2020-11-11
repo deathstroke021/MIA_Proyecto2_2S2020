@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+
+        <a class="navbar-brand" href="#">
+            <label  for="start">Administrador</label>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <button (click)="CerrarSesion()" type="button" class="btn btn-info">Cerrar Sesion</button>
+
+                </li>
+                
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+<div *ngFor="let denuncia of Denuncias" class="col-5">
+
+                    
+    <div class="card bg-light mb-3">
+
+        <div class="card-body">
+            <h6 class="card-title">Usuario: {{denuncia.usuario}}</h6>   
+
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">Producto: {{denuncia.producto}}</h6>
+
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">Descripcion: {{denuncia.descripcion}}</h6>
+
+        </div>
+        <div class="card-header">
+        
+        <label for="Name">{{denuncia.fecha}}, </label>
+    </div>
+    <div class="card-footer">
+
+        <button  (click)="Bloquear(denuncia.idproducto,denuncia.usuario,denuncia.producto)"  type="submit"  class="btn btn-secondary">Bloquear publicacion</button>
+        
+    </div>
+    <div class="card-footer">
+
+        <button  (click)="Desbloquear(denuncia.idproducto)"  type="submit"  class="btn btn-secondary">Desbloquear publicacion</button>
+        
+    </div>
+        
+    </div>
+</div>
+
+
+<style>
+
+    .col-5{
+        position: relative;          
+        top: 50px;
+        left: 380px;
+    }
+
+
+</style>

@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://cdn.icon-icons.com/icons2/1857/PNG/512/onlineshopping_117801.png" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <img *ngFor="let usuario of Usuarios" src="{{usuario.foto}}" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">{{usuario.correo}}</label>
+        </a>
+        <a class="navbar-brand" href="#">
+            <label *ngFor="let usuario of Usuarios" for="start">Creditos: {{usuario.credito}}</label>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item active">
+                    <button (click)="CerrarSesion()" type="button" class="btn btn-info">Cerrar Sesion</button>
+
+                </li>
+                
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        
+
+                <div *ngFor="let productos of Productos" class="col-4">
+
+                    
+                    <div class="card bg-light mb-3">
+                        <img src="{{productos.foto}}" width="200" height="200" alt="">
+
+                        <div class="card-header">{{productos.nombre}}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Creditos: {{productos.precio}}</h5>   
+  
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Descripcion: {{productos.descripcion}}</h5>
+  
+                        </div>
+
+                        <div class="card-body">
+                            <h5 *ngFor="let likes of CantidadLikes" class="card-title">Likes:{{likes.cantidad}} </h5>
+                            <h5 *ngFor="let dislikes of CantidadDislikes" class="card-title">Dislikes:{{dislikes.cantidad}} </h5>
+                        </div>
+
+                        <div class="card-header">
+                            <label for="Name">Tags:</label>
+                        <label *ngFor="let palabras of Palabra" for="Name">{{palabras.palabra }}, </label>
+                    </div>
+                    <div class="card-footer">
+
+                        <button  type="submit" (click)="Like()" class="btn btn-secondary">Like</button>
+                        <button  type="submit"  (click)="Dislike()" class="btn btn-secondary">Dislike</button>
+                        
+                </div>
+                        <div class="card-footer">
+
+                            <button  type="submit" (click)="Agregar()" class="btn btn-secondary">Agregar a carrito</button>
+                            
+                    </div>
+                    <div class="card-footer">
+
+                        <button (click)="Denunciar()" type="submit"  class="btn btn-secondary">Denunciar</button>
+                        
+                </div>
+                <textarea [(ngModel)]="textcomentario" name="comentarios" rows="10" cols="40"></textarea>
+                <div class="card-footer">
+
+                    <button  (click)="Comentar()" type="submit"  class="btn btn-secondary">Comentar</button>
+                    
+            </div>
+                    </div>
+                </div>
+
+
+                
+
+
+    </div>
+</div>
+
+<div *ngFor="let comentarios of ComentariosVer" class="col-5">
+
+                    
+    <div class="card bg-light mb-3">
+
+        <div class="card-body">
+            <h6 class="card-title">Usuario: {{comentarios.usuario}}</h6>   
+
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">{{comentarios.comentario}}</h6>
+
+        </div>
+        <div class="card-header">
+        
+        <label for="Name">{{comentarios.fecha}}, </label>
+    </div>
+        
+    </div>
+</div>
+
+
+<style>
+    .col-4{
+        position: absolute;
+        top:30%;
+        left: 43%;           
+        margin-top: -100px;
+        margin-left: -100px;
+    }
+
+    .col-5{
+        position: relative;          
+        top: 1100px;
+        left: 380px;
+    }
+
+
+</style>
+
